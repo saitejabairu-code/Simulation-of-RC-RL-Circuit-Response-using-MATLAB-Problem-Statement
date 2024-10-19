@@ -33,8 +33,4 @@ jobs:
           matlab -batch "run('test_cases.m');"
       
       # Step 5: Upload MATLAB figures (if any plots were generated)
-      - name: Upload MATLAB Figures
-        uses: actions/upload-artifact@v3
-        with:
-          name: figures
-          path: **/*.png  # Modify this if your figures are saved in a different format
+     
