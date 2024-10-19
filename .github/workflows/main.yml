@@ -1,0 +1,40 @@
+name: Run MATLAB Simulation and Tests
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  run-matlab:
+    name: MATLAB Simulation and Test Run
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the repository
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      # Step 2: Set up MATLAB (using the official MATLAB action)
+      - name: Set up MATLAB
+        uses: matlab-actions/setup-matlab@v1
+
+      # Step 3: Run the MATLAB simulation script
+      - name: Run RC Circuit Simulation
+        run: |
+          matlab -batch "run('rc circuit.m');"
+      
+      # Step 4: Run the MATLAB test cases
+      - name: Run MATLAB Test Cases
+        run: |
+          matlab -batch "run('test_cases.m');"
+      
+      # Step 5: Upload MATLAB figures (if any plots were generated)
+      - name: Upload MATLAB Figures
+        uses: actions/upload-artifact@v3
+        with:
+          name: figures
+          path: **/*.png  # Modify this if your figures are saved in a different format
