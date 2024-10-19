@@ -24,7 +24,7 @@ jobs:
       # Run the RC Circuit MATLAB script
       - name: Run RC Circuit Simulation
         run: |
-          matlab -batch "cd Scripts/MATLAB; rc_circuit; exit"
+          matlab -batch "cd Scripts/MATLAB; rL_circuit; exit"
 
       # Upload the generated plot as an artifact (e.g., rc_voltage_plot.png)
       - name: Upload simulation plot
