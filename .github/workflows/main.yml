@@ -1,0 +1,39 @@
+name: RC Circuit Simulation CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  run-matlab-script:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the repository
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Set up MATLAB (Requires MATLAB license to be linked)
+      - name: Set up MATLAB
+        uses: matlab-actions/setup-matlab@v1
+
+      # Run the RC Circuit MATLAB script
+      - name: Run RC Circuit Simulation
+        run: |
+          matlab -batch "cd scripts; rc_circuit; exit"
+
+      # Upload the generated plot as an artifact (e.g., rc_voltage_plot.png)
+      - name: Upload simulation plot
+        uses: actions/upload-artifact@v3
+        with:
+          name: rc-plot
+          path: scripts/rc_voltage_plot.png
+
+      # Optionally, run the test cases
+      - name: Run Test Cases
+        run: |
+          matlab -batch "test_cases"
