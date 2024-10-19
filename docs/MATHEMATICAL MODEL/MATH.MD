@@ -6,7 +6,9 @@ An RC circuit consists of a resistor (R) and a capacitor (C) connected in series
 
 Governing Equations:
 
-When a voltage V0​ is applied to the circuit, the capacitor begins to charge. The voltage across the capacitor VC(t) and the resistor VR​(t) can be described using Kirchhoff's voltage law:
+When a voltage V0​ is applied to the circuit, the capacitor begins to charge. 
+
+The voltage across the capacitor VC(t) and the resistor VR​(t) can be described using Kirchhoff's voltage law:
 
 
 V0 = VC(t) + VR(t)
@@ -34,7 +36,9 @@ RC [dVC(t)/dt] + VC(t) = V0
 ​
 Solution:
 
-To solve this equation, we can apply the method of separation of variables. The general solution for the voltage across the capacitor during the charging process is:
+To solve this equation, we can apply the method of separation of variables. 
+
+The general solution for the voltage across the capacitor during the charging process is:
 
 
 VC(t) = V0(1− e-1/RC)
