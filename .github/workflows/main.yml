@@ -25,7 +25,7 @@ jobs:
       # Step 3: Run the MATLAB simulation script
       - name: Run RC Circuit Simulation
         run: |
-          matlab -batch "run('rc circuit.m');"
+          matlab -batch "run('source/rc_circuit.m');"
       
       # Step 4: Run the MATLAB test cases
       - name: Run MATLAB Test Cases
